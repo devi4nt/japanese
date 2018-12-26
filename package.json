@@ -1,0 +1,47 @@
+{
+    "name": "japanese",
+    "version": "1.0.0",
+    "description": "A little project I made to help me learn japanese",
+    "repository": {
+        "url": "git@github.com:devi4nt/japanese.git"
+    },
+    "main": "index.ts",
+    "scripts": {
+        "test": "cd cgi-bin; prove -r t",
+        "prebuild": "npm install && npm update",
+        "build": "npm run compile",
+        "precompile": "npm run lint.ts && npm run lint.css",
+        "compile": "webpack",
+        "lint.ts": "tslint --project .",
+        "lint.ts.fix": "tslint --project . --fix",
+        "lint": "tslint -p ./tsconfig.json",
+        "lint.css": "stylelint '**/*.css'",
+        "lint.css.fix": "npm run lint.css -- --fix"
+    },
+    "stylelint": {
+        "extends": "@holograph/stylelint-holo-rules",
+        "rules": {
+            "indentation": [
+                4
+            ]
+        }
+    },
+    "devDependencies": {
+        "@holograph/stylelint-holo-rules": "^1.0.1",
+        "@holograph/tslint-holo-rules": "^1",
+        "@types/bootstrap": "^4.1.4",
+        "@types/handlebars": "^4.0.40",
+        "@types/jquery": "^3.3.28",
+        "@types/popper.js": "^1.11.0",
+        "clean-webpack-plugin": "^0.1.19",
+        "exports-loader": "^0.7.0",
+        "ts-loader": "^4.5.0",
+        "typescript": "^2.9.2",
+        "webpack": "^4.28.2",
+        "webpack-cli": "^3.1.2"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {}
+}
