@@ -16,67 +16,6 @@ const u = new Hiragana("う", "u");
 const e = new Hiragana("え", "e");
 const o = new Hiragana("お", "o");
 
-// k consonants
-const ka = new Hiragana("か", "ka", a);
-const ki = new Hiragana("き", "ki", i);
-const ku = new Hiragana("く", "ku", u);
-const ke = new Hiragana("け", "ke", e);
-const ko = new Hiragana("こ", "ko", o);
-
-// s consonants
-const sa = new Hiragana("さ", "sa", a);
-const shi = new Hiragana("し", "shi", i);
-const su = new Hiragana("す", "su", u);
-const se = new Hiragana("せ", "se", e);
-const so = new Hiragana("そ", "so", o);
-
-// t consonants
-const ta = new Hiragana("た", "ta", a);
-const chi = new Hiragana("ち", "chi", i);
-const tsu = new Hiragana("つ", "tsu", u);
-const te = new Hiragana("て", "te", e);
-const to = new Hiragana("と", "to", o);
-
-// n consonants
-const na = new Hiragana("な", "na", a);
-const ni = new Hiragana("に", "ni", i);
-const nu = new Hiragana("ぬ", "nu", u);
-const ne = new Hiragana("ね", "ne", e);
-const no = new Hiragana("の", "no", o);
-
-// h consonants
-const ha = new Hiragana("は", "ha", a);
-const hi = new Hiragana("ひ", "hi", i);
-const fu = new Hiragana("ふ", "fu", u);
-const he = new Hiragana("へ", "he", e);
-const ho = new Hiragana("ほ", "ho", o);
-
-// m consonants
-const ma = new Hiragana("ま", "ma", a);
-const mi = new Hiragana("み", "mi", i);
-const mu = new Hiragana("む", "mu", u);
-const me = new Hiragana("め", "me", e);
-const mo = new Hiragana("も", "mo", o);
-
-// y consonants
-const ya = new Hiragana("や", "ya", a);
-const yu = new Hiragana("ゆ", "yu", u);
-const yo = new Hiragana("よ", "yo", o);
-
-// r consonants
-const ra = new Hiragana("ら", "ra", a);
-const ri = new Hiragana("り", "ri", i);
-const ru = new Hiragana("る", "ru", u);
-const re = new Hiragana("れ", "re", e);
-const ro = new Hiragana("ろ", "ro", o);
-
-// w consonants
-const wa = new Hiragana("わ", "wa", a);
-const wo = new Hiragana("を", "wo", o);
-
-// n consonants
-const n = new Hiragana("ん", "n");
-
 export const sokuon: Hiragana = new Hiragana("っ", "sokuon");
 
 export const hiraganaVowels: Hiragana[] = [a, i, u, e, o];
@@ -84,56 +23,56 @@ export const hiraganaVowels: Hiragana[] = [a, i, u, e, o];
 // consonants
 export const hiraganaConsonants: Hiragana[] = [
     // k consonants
-    ka,
-    ki,
-    ku,
-    ke,
-    ko,
+    new Hiragana("か", "ka", a),
+    new Hiragana("き", "ki", i),
+    new Hiragana("く", "ku", u),
+    new Hiragana("け", "ke", e),
+    new Hiragana("こ", "ko", o),
     // s consonants
-    sa,
-    shi,
-    su,
-    se,
-    so,
+    new Hiragana("さ", "sa", a),
+    new Hiragana("し", "shi", i),
+    new Hiragana("す", "su", u),
+    new Hiragana("せ", "se", e),
+    new Hiragana("そ", "so", o),
     // t consonants
-    ta,
-    chi,
-    tsu,
-    te,
-    to,
+    new Hiragana("た", "ta", a),
+    new Hiragana("ち", "chi", i),
+    new Hiragana("つ", "tsu", u),
+    new Hiragana("て", "te", e),
+    new Hiragana("と", "to", o),
     // n consonants
-    na,
-    ni,
-    nu,
-    ne,
-    no,
+    new Hiragana("な", "na", a),
+    new Hiragana("に", "ni", i),
+    new Hiragana("ぬ", "nu", u),
+    new Hiragana("ね", "ne", e),
+    new Hiragana("の", "no", o),
     // h consonants
-    ha,
-    hi,
-    fu,
-    he,
-    ho,
+    new Hiragana("は", "ha", a),
+    new Hiragana("ひ", "hi", i),
+    new Hiragana("ふ", "fu", u),
+    new Hiragana("へ", "he", e),
+    new Hiragana("ほ", "ho", o),
     // m consonants
-    ma,
-    mi,
-    mu,
-    me,
-    mo,
+    new Hiragana("ま", "ma", a),
+    new Hiragana("み", "mi", i),
+    new Hiragana("む", "mu", u),
+    new Hiragana("め", "me", e),
+    new Hiragana("も", "mo", o),
     // y consonants
-    ya,
-    yu,
-    yo,
+    new Hiragana("や", "ya", a),
+    new Hiragana("ゆ", "yu", u),
+    new Hiragana("よ", "yo", o),
     // r consonants
-    ra,
-    ri,
-    ru,
-    re,
-    ro,
+    new Hiragana("ら", "ra", a),
+    new Hiragana("り", "ri", i),
+    new Hiragana("る", "ru", u),
+    new Hiragana("れ", "re", e),
+    new Hiragana("ろ", "ro", o),
     // w consonants
-    wa,
-    wo,
-    // n consonants
-    n
+    new Hiragana("わ", "wa", a),
+    new Hiragana("を", "wo", o),
+    // n
+    new Hiragana("ん", "n")
 ];
 
 export const hiraganaDakuten: Hiragana[] = [
