@@ -8,7 +8,8 @@ export class CharacterTable extends AbstractComponent {
     description: string;
     identifier: string;
     characters: Character[];
-    groups: ICharacterGroup[];
+    rowGroups: ICharacterGroup[];
+    columnGroups: ICharacterGroup[];
     templateHTML = `
     <a id="{{identifier}}"></a>
     <div data-drag-drop>
@@ -26,13 +27,19 @@ export class CharacterTable extends AbstractComponent {
                 {{#each columns}}
                 <th>{{identifier}}</th>
                 {{/each}}
+                {{#if rows}}
+                <th class="row-identifier"></th>
+                {{/if}}
             </tr>
         </thead>
         <tbody>
             <tr>
                 {{#each columns}}
-                <td>{{#each characters}}<div class="lead"><span class="potential-drag-target"><span data-type="{{type}}" data-romanji="{{romanji}}" data-symbol="{{symbol}}" data-drag-element>{{symbol}}</span></span> <small class="text-muted">{{romanji}}</small></div>{{/each}}</td>
+                <td>{{#each characters}}<div class="lead">{{#if symbol}}<span class="potential-drag-target"><span data-type="{{type}}" data-romanji="{{romanji}}" data-symbol="{{symbol}}" data-drag-element>{{symbol}}</span></span> <small class="text-muted">{{romanji}}</small>{{else}}&nbsp;{{/if}}</div>{{/each}}</td>
                 {{/each}}
+                {{#if rows}}
+                <td class="text-center">{{#each rows}}<div class="lead">{{identifier}}</div>{{/each}}</td>
+                {{/if}}
             </tr>
         </tbody>
         </table>
@@ -44,14 +51,16 @@ export class CharacterTable extends AbstractComponent {
         description: string,
         identifier: string,
         characters: Character[],
-        groups: ICharacterGroup[]
+        columnGroups: ICharacterGroup[],
+        rowGroups: ICharacterGroup[]
     ) {
         super();
         this.title = title;
         this.identifier = identifier;
         this.description = description;
         this.characters = characters;
-        this.groups = groups;
+        this.columnGroups = columnGroups;
+        this.rowGroups = rowGroups;
     }
 
     filter(regExp: RegExp): Character[] {
@@ -66,10 +75,30 @@ export class CharacterTable extends AbstractComponent {
 
     data(): ICharacterGroupData[] {
         const groupData: ICharacterGroupData[] = [];
-        this.groups.forEach(group => {
+        this.columnGroups.forEach(group => {
+            const rowCharacters: Character[] = [];
+            const characters = this.filter(group.filter);
+            this.rowGroups.forEach(rowGroup => {
+                let matched = false;
+                characters.forEach(character => {
+                    // n (include in A row)
+                    if (
+                        (character.romanji === "n" &&
+                            rowGroup.vowel.romanji === "a") ||
+                        character.vowel === rowGroup.vowel ||
+                        character.symbol === rowGroup.vowel.symbol
+                    ) {
+                        rowCharacters.push(character);
+                        matched = true;
+                    }
+                });
+                if (!matched) {
+                    rowCharacters.push({ symbol: "" }); // spacer
+                }
+            });
             groupData.push({
                 identifier: group.identifier,
-                characters: this.filter(group.filter)
+                characters: rowCharacters
             });
         });
         return groupData;
@@ -81,6 +110,7 @@ export class CharacterTable extends AbstractComponent {
             title: this.title,
             description: this.description,
             identifier: this.identifier,
+            rows: this.rowGroups,
             columns: data
         });
     }

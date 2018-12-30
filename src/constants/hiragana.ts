@@ -1,13 +1,14 @@
 import { IRomanji, RomanjiKeys } from "../interfaces/romanji";
 import {
-    defaultGrouping,
-    diacriticsGrouping,
-    digraphsDiacriticsGrouping,
-    digraphsGrouping
+    defaultColumnGrouping,
+    diacriticsColumnGrouping,
+    digraphsColumnGrouping,
+    digraphsDiacriticsColumnGrouping
 } from "./characters";
 
 import { CharacterTable } from "../classes/CharacterTable";
 import { Hiragana } from "../classes/Hiragana";
+import { ICharacterGroup } from "./../interfaces/characters";
 
 // vowels
 const a = new Hiragana("あ", "a");
@@ -19,6 +20,12 @@ const o = new Hiragana("お", "o");
 export const sokuon: Hiragana = new Hiragana("っ", "sokuon");
 
 export const hiraganaVowels: Hiragana[] = [a, i, u, e, o];
+export const hiraganaVowelRowGrouping: ICharacterGroup[] = [];
+export const hiraganaDigraphsRowGrouping: ICharacterGroup[] = [
+    { identifier: "ya", vowel: a },
+    { identifier: "yu", vowel: u },
+    { identifier: "yo", vowel: o }
+];
 
 // consonants
 export const hiraganaConsonants: Hiragana[] = [
@@ -165,6 +172,11 @@ hiragana.sokuon = sokuon;
 // hiragana vowels
 hiraganaVowels.forEach(vowel => {
     hiragana[vowel.romanji as keyof IRomanji] = vowel;
+    hiraganaVowelRowGrouping.push({
+        identifier: vowel.romanji,
+        romanji: vowel.romanji as keyof IRomanji,
+        vowel
+    });
 });
 
 // hiragana consonants
@@ -198,27 +210,31 @@ export const hiraganaCharacterTables: CharacterTable[] = [
         "(gojūon)",
         "hiraganamonographs",
         [].concat(hiraganaVowels, hiraganaConsonants),
-        defaultGrouping
+        defaultColumnGrouping,
+        hiraganaVowelRowGrouping
     ),
     new CharacterTable(
         "Diacritics",
         "(gojūon with (han)dakuten)",
         "hiraganadiacritics",
         [].concat(hiraganaDakuten, hiraganaHandakuten),
-        diacriticsGrouping
+        diacriticsColumnGrouping,
+        hiraganaVowelRowGrouping
     ),
     new CharacterTable(
         "Digraphs",
         "(yōon)",
         "hiraganadigraphs",
         hiraganaYoon,
-        digraphsGrouping
+        digraphsColumnGrouping,
+        hiraganaDigraphsRowGrouping
     ),
     new CharacterTable(
         "Digraphs with diacritics",
         "(yōon with (han)dakuten)",
         "hiraganadigraphdiacritics",
         hiraganaYoonHanDakuten,
-        digraphsDiacriticsGrouping
+        digraphsDiacriticsColumnGrouping,
+        hiraganaDigraphsRowGrouping
     )
 ];

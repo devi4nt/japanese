@@ -1,12 +1,13 @@
 import { IRomanji, RomanjiKeys } from "../interfaces/romanji";
 import {
-    defaultGrouping,
-    diacriticsGrouping,
-    digraphsDiacriticsGrouping,
-    digraphsGrouping
+    defaultColumnGrouping,
+    diacriticsColumnGrouping,
+    digraphsColumnGrouping,
+    digraphsDiacriticsColumnGrouping
 } from "./characters";
 
 import { CharacterTable } from "../classes/CharacterTable";
+import { ICharacterGroup } from "../interfaces/characters";
 import { Katakana } from "../classes/Katakana";
 
 // vowels
@@ -17,6 +18,12 @@ const e = new Katakana("エ", "e");
 const o = new Katakana("オ", "o");
 
 export const katakanaVowels: Katakana[] = [a, i, u, e, o];
+export const katakanaVowelRowGrouping: ICharacterGroup[] = [];
+export const katakanaDigraphsRowGrouping: ICharacterGroup[] = [
+    { identifier: "ya", vowel: a },
+    { identifier: "yu", vowel: u },
+    { identifier: "yo", vowel: o }
+];
 
 // consonants
 export const katakanaConsonants: Katakana[] = [
@@ -164,6 +171,11 @@ export const katakana: RomanjiKeys = {} as RomanjiKeys;
 // katakana vowels
 katakanaVowels.forEach(vowel => {
     katakana[vowel.romanji as keyof IRomanji] = vowel;
+    katakanaVowelRowGrouping.push({
+        identifier: vowel.romanji,
+        romanji: vowel.romanji as keyof IRomanji,
+        vowel
+    });
 });
 
 // katakana consonants
@@ -197,27 +209,31 @@ export const katakanaCharacterTables: CharacterTable[] = [
         "(gojūon)",
         "katakanamonographs",
         [].concat(katakanaVowels, katakanaConsonants),
-        defaultGrouping
+        defaultColumnGrouping,
+        katakanaVowelRowGrouping
     ),
     new CharacterTable(
         "Diacritics",
         "(gojūon with (han)dakuten)",
         "katakanadiacritics",
         [].concat(katakanaDakuten, katakanaHandakuten),
-        diacriticsGrouping
+        diacriticsColumnGrouping,
+        katakanaVowelRowGrouping
     ),
     new CharacterTable(
         "Digraphs",
         "(yōon)",
         "katakanadigraphs",
         katakanaYoon,
-        digraphsGrouping
+        digraphsColumnGrouping,
+        katakanaDigraphsRowGrouping
     ),
     new CharacterTable(
         "Digraphs with diacritics",
         "(yōon with (han)dakuten)",
         "katakanadigraphdiacritics",
         katakanaYoonHanDakuten,
-        digraphsDiacriticsGrouping
+        digraphsDiacriticsColumnGrouping,
+        katakanaDigraphsRowGrouping
     )
 ];

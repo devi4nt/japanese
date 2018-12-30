@@ -1,6 +1,6 @@
 import { ICharacterGroup } from "../interfaces/characters";
 
-export const defaultGrouping: ICharacterGroup[] = [
+export const defaultColumnGrouping: ICharacterGroup[] = [
     { identifier: "n", filter: /^n$/ },
     { identifier: "w", filter: /^w/ },
     { identifier: "r", filter: /^r/ },
@@ -14,15 +14,15 @@ export const defaultGrouping: ICharacterGroup[] = [
     { identifier: "∅", filter: /^(a|i|u|e|o)$/ }
 ];
 
-export const diacriticsGrouping: ICharacterGroup[] = [
+export const diacriticsColumnGrouping: ICharacterGroup[] = [
     { identifier: "p", filter: /^p/ },
     { identifier: "b", filter: /^b/ },
     { identifier: "d", filter: /^d/ },
-    { identifier: "z", filter: /^z/ },
+    { identifier: "z", filter: /^[zj]/ },
     { identifier: "g", filter: /^g/ }
 ];
 
-export const digraphsGrouping: ICharacterGroup[] = [
+export const digraphsColumnGrouping: ICharacterGroup[] = [
     { identifier: "r", filter: /^r/ },
     { identifier: "m", filter: /^m/ },
     { identifier: "h", filter: /^h/ },
@@ -32,7 +32,7 @@ export const digraphsGrouping: ICharacterGroup[] = [
     { identifier: "k", filter: /^k/ }
 ];
 
-export const digraphsDiacriticsGrouping: ICharacterGroup[] = [
+export const digraphsDiacriticsColumnGrouping: ICharacterGroup[] = [
     { identifier: "p", filter: /^p/ },
     { identifier: "b", filter: /^b/ },
     { identifier: "j", filter: /^j/ },

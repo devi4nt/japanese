@@ -6,6 +6,10 @@ body {
     border: 1px dashed #999;
 }
 
+.row-identifier {
+    width: 40px;
+}
+
 .potential-drop-target {
     border: 1px solid transparent;
 }
