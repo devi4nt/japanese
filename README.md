@@ -4,7 +4,7 @@
 
 A little project I made to help me learn Japanese, perhaps it will help you too!
 
-The main aim of this project was to provide a list of all common **Hiragana** & **Katakana** symbols along with their respective romanji sequences. However, it also includes drag drop excersizes inspired by [Usagi-Chan's Genki Resources](https://www.csus.edu/indiv/s/sheaa/projects/genki).
+The main aim of this project was to provide a list of all common **Hiragana** & **Katakana** symbols along with their respective romanji sequences. However, it also includes drag drop exercises inspired by [Usagi-Chan's Genki Resources](https://www.csus.edu/indiv/s/sheaa/projects/genki).
 
 Written using Typescript, with [Handlebars.js](https://handlebarsjs.com) & [Bootstrap v4](https://getbootstrap.com) HTML components.
 
