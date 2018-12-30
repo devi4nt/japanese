@@ -1,8 +1,13 @@
 import { IRomanji, RomanjiKeys } from "../interfaces/romanji";
+import {
+    defaultGrouping,
+    diacriticsGrouping,
+    digraphsDiacriticsGrouping,
+    digraphsGrouping
+} from "./characters";
 
 import { CharacterTable } from "../classes/CharacterTable";
 import { Katakana } from "../classes/Katakana";
-import { defaultGrouping } from "./characters";
 
 // vowels
 const a = new Katakana("ア", "a");
@@ -199,28 +204,20 @@ export const katakanaCharacterTables: CharacterTable[] = [
         "(gojūon with (han)dakuten)",
         "katakanadiacritics",
         [].concat(katakanaDakuten, katakanaHandakuten),
-        [
-            { identifier: "g", filter: /^g/ },
-            { identifier: "z", filter: /^z/ },
-            { identifier: "d", filter: /^d/ },
-            { identifier: "b", filter: /^b/ },
-            { identifier: "p", filter: /^p/ }
-        ]
+        diacriticsGrouping
     ),
-    new CharacterTable("Digraphs", "(yōon)", "katakanadigraphs", katakanaYoon, [
-        { identifier: "ya", filter: /a$/ },
-        { identifier: "yu", filter: /u$/ },
-        { identifier: "yo", filter: /o$/ }
-    ]),
+    new CharacterTable(
+        "Digraphs",
+        "(yōon)",
+        "katakanadigraphs",
+        katakanaYoon,
+        digraphsGrouping
+    ),
     new CharacterTable(
         "Digraphs with diacritics",
         "(yōon with (han)dakuten)",
         "katakanadigraphdiacritics",
         katakanaYoonHanDakuten,
-        [
-            { identifier: "ya", filter: /a$/ },
-            { identifier: "yu", filter: /u$/ },
-            { identifier: "yo", filter: /o$/ }
-        ]
+        digraphsDiacriticsGrouping
     )
 ];
