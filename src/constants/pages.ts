@@ -30,9 +30,6 @@ export function viewPage(identifier?: string): void {
         // render the page
         renderPage(identifier);
 
-        // setup events for the quiz
-        // setupQuizEvents();
-
         // drag drop challenge setup
         setupDragEvents();
     }
