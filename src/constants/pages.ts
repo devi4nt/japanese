@@ -1,20 +1,22 @@
 import { HiraganaPage, hiraganaPageStructure } from "../pages/HiraganaPage";
 
+import { AdjectivesPage } from "../pages/AdjectivesPage";
 import { DefaultPage } from "../pages/DefaultPage";
 import { IPageStructure } from "../interfaces/pages";
 import { KatakanaPage } from "../pages/KatakanaPage";
 import { NumbersPage } from "../pages/NumbersPage";
-import { PhrasesPage } from "../pages/PhrasesPage";
+import { VerbsPage } from "../pages/VerbsPage";
+import { WordsPage } from "../pages/WordsPage";
 import { katakanaPageStructure } from "./../pages/KatakanaPage";
 import { setupDragEvents } from "./drag";
-
-// import { setupQuizEvents } from "./quiz";
 
 export const pageStructure: IPageStructure[] = [
     hiraganaPageStructure,
     katakanaPageStructure,
     { identifier: "numbers", title: "Numbers" },
-    { identifier: "phrases", title: "Phrases" }
+    { identifier: "words", title: "Words" },
+    { identifier: "verbs", title: "Verbs" },
+    { identifier: "adjectives", title: "Adjectives" }
 ];
 
 export function viewPage(identifier?: string): void {
@@ -55,8 +57,14 @@ function renderPage(identifier: string): void {
         case "numbers":
             page = new NumbersPage();
             break;
-        case "phrases":
-            page = new PhrasesPage();
+        case "words":
+            page = new WordsPage();
+            break;
+        case "verbs":
+            page = new VerbsPage();
+            break;
+        case "adjectives":
+            page = new AdjectivesPage();
             break;
         default:
             page = new DefaultPage();

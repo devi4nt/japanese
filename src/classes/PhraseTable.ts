@@ -3,7 +3,7 @@ import { Phrase } from "./Phrase";
 
 export class PhraseTable extends AbstractComponent {
     phrases: Phrase[];
-    templateHTML = `<h2>{{title}}</h2><table class="table table-sm table-dark table-bordered">
+    templateHTML = `<h4>{{title}}</h4><table class="table table-sm table-dark table-bordered">
     <thead>
         <tr>
             <th>Japanese</th>
@@ -13,7 +13,7 @@ export class PhraseTable extends AbstractComponent {
     <tbody>
         {{#each phrases}}
         <tr>
-            <td><span class="lead">{{#each symbols}}{{symbol}}{{/each}}</span> <small class="text-muted">{{#if romanji}}{{romanji}}{{else}}{{#each symbols}}{{romanji}}{{/each}}{{/if}}</small></span></td>
+            <td><span class="lead">{{#each symbols}}{{symbol}}{{/each}}</span> <small class="text-muted">{{#if romanji}}{{romanji}}{{else}}{{#each symbols}}{{#each furigana}}{{romanji}}{{else}}{{romanji}}{{/each}}{{/each}}{{/if}}</small></span></td>
             <td>{{#each english}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</td>
         </tr>
         {{/each}}

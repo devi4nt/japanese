@@ -20,7 +20,7 @@ export class CharacterTable extends AbstractComponent {
         <span class="badge badge-success float-right ml-2 mt-1 d-none" data-correct></span>
         <span class="badge badge-default float-right ml-2 mt-1 d-none" data-timer></span>
 
-        <h3>{{title}} <small>{{description}}</small></h3>
+        <h4>{{title}} <small>{{description}}</small></h4>
         <table class="table table-sm table-dark table-bordered">
         <thead>
             <tr>

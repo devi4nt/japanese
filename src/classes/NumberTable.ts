@@ -3,7 +3,7 @@ import { JapaneseNumber } from "./JapaneseNumber";
 
 export class NumberTable extends AbstractComponent {
     numbers: JapaneseNumber[];
-    templateHTML = `<h3>{{title}}</h3><table class="table table-sm table-dark table-bordered">
+    templateHTML = `<h4>{{title}}</h4><table class="table table-sm table-dark table-bordered">
     <thead>
         <tr>
             <th></th>
