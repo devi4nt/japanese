@@ -27,18 +27,18 @@
         }
     },
     "devDependencies": {
-        "@holograph/stylelint-holo-rules": "^1.0.1",
-        "@holograph/tslint-holo-rules": "^1",
-        "@types/bootstrap": "^4.1.4",
-        "@types/handlebars": "^4.0.40",
-        "@types/jquery": "^3.3.28",
+        "@holograph/stylelint-holo-rules": "^1.0.9",
+        "@holograph/tslint-holo-rules": "^1.0.5",
+        "@types/bootstrap": "^4.3.1",
+        "@types/handlebars": "^4.1.0",
+        "@types/jquery": "^3.3.30",
         "@types/popper.js": "^1.11.0",
         "clean-webpack-plugin": "^0.1.19",
         "exports-loader": "^0.7.0",
         "ts-loader": "^4.5.0",
         "typescript": "^2.9.2",
-        "webpack": "^4.28.2",
-        "webpack-cli": "^3.1.2"
+        "webpack": "^4.39.0",
+        "webpack-cli": "^3.3.6"
     },
     "keywords": [],
     "author": "",

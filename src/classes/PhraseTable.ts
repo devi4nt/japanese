@@ -6,8 +6,8 @@ export class PhraseTable extends AbstractComponent {
     templateHTML = `<h4>{{title}}</h4><table class="table table-sm table-dark table-bordered">
     <thead>
         <tr>
-            <th>Japanese</th>
-            <th></th>
+            <th class="w-50">Japanese</th>
+            <th class="w-50"></th>
         </tr>
     </thead>
     <tbody>

@@ -7,28 +7,28 @@ export class NumberTable extends AbstractComponent {
     <thead>
         <tr>
             <th></th>
-            <th>Sino Japanese</th>
-            <th>Kanji</th>
-            <th>Native Japanese</th>
-            <th>Kanji</th>
+            <th class="w-25">Kanji</th>
+            <th class="w-25">Sino Japanese</th>
+            <th class="w-25">Kanji</th>
+            <th class="w-25">Native Japanese</th>
         </tr>
     </thead>
     <tbody>
         {{#each numbers}}
         <tr>
             <td>{{decimal}}</td>
+            <td>{{sinoKanji.symbol}}</td>
             <td>
                 {{#each sinoPhrases}}
                 <span class="lead">{{#each symbols}}{{symbol}}{{/each}}</span> <small class="text-muted">{{#if romanji}}{{romanji}}{{else}}{{#each symbols}}{{romanji}}{{/each}}{{/if}}</small> 
                 {{/each}}
             </td>
-            <td>{{sinoKanji.symbol}}</td>
+            <td>{{nativeKanji.symbol}}</td>
             <td>
                 {{#each nativePhrases}}
                 <span class="lead">{{#each symbols}}{{symbol}}{{/each}}</span> <small class="text-muted">{{#if romanji}}{{romanji}}{{else}}{{#each symbols}}{{romanji}}{{/each}}{{/if}}</small> 
                 {{/each}}
             </td>
-            <td>{{nativeKanji.symbol}}</td>
         </tr>
         {{/each}}
     </tbody>
