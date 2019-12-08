@@ -43,5 +43,7 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "dependencies": {}
+    "dependencies": {
+        "handlebars": "^4.5.3"
+    }
 }
