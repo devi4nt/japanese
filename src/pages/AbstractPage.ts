@@ -1,6 +1,6 @@
-import { AbstractComponent } from "../classes/AbstractComponent";
-import { ContentsComponent } from "./../classes/ContentsComponent";
-import { IPageStructure } from "./../interfaces/pages";
+import { AbstractComponent } from '../classes/AbstractComponent';
+import { ContentsComponent } from './../classes/ContentsComponent';
+import { IPageStructure } from './../interfaces/pages';
 
 export abstract class AbstractPage extends AbstractComponent {
     contents: ContentsComponent = new ContentsComponent();
@@ -9,7 +9,7 @@ export abstract class AbstractPage extends AbstractComponent {
 
     constructor() {
         super();
-        this.outputElement = document.getElementById("page-container");
+        this.outputElement = document.getElementById('page-container');
     }
 
     abstract pageHTML(identifier: string): string;
@@ -17,17 +17,17 @@ export abstract class AbstractPage extends AbstractComponent {
     contentsHTML(): string {
         return this.pageStructure
             ? this.contents.compile({
-                  structure: this.pageStructure
+                  structure: this.pageStructure,
               })
-            : "";
+            : '';
     }
 
     render(identifier: string): void {
         if (this.outputElement) {
             this.outputElement.innerHTML = this.pageHTML(identifier);
         } else {
-            // tslint:disable-next-line:no-console
-            console.error("unable to locate output DOM element");
+            // eslint-disable-next-line no-console
+            console.error('unable to locate output DOM element');
         }
     }
 }

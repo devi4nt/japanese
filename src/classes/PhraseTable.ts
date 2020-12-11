@@ -1,5 +1,5 @@
-import { AbstractComponent } from "./AbstractComponent";
-import { Phrase } from "./Phrase";
+import { AbstractComponent } from './AbstractComponent';
+import { Phrase } from './Phrase';
 
 export class PhraseTable extends AbstractComponent {
     phrases: Phrase[];

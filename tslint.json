@@ -1,6 +1,0 @@
-{
-  "extends": ["@holograph/tslint-holo-rules"],
-  "rules": {
-    "indent": [true, "spaces", 4]
-  }
-}

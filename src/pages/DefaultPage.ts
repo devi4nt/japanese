@@ -1,5 +1,5 @@
-import { AbstractPage } from "./AbstractPage";
-import { pageStructure } from "../constants/pages";
+import { pageStructure } from '../constants/pages';
+import { AbstractPage } from './AbstractPage';
 
 export class DefaultPage extends AbstractPage {
     templateHTML = ``;

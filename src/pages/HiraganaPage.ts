@@ -1,22 +1,22 @@
-import { AbstractCharacterPage } from "./AbstractCharacterPage";
-import { CharacterTable } from "../classes/CharacterTable";
-import { IPageStructure } from "../interfaces/pages";
-import { hiraganaCharacterTables } from "../constants/hiragana";
+import { CharacterTable } from '../classes/CharacterTable';
+import { IPageStructure } from '../interfaces/pages';
+import { hiraganaCharacterTables } from '../constants/hiragana';
+import { AbstractCharacterPage } from './AbstractCharacterPage';
 
-const pageTitle = "Hiragana";
-const pageIdentifier = "hiragana";
+const pageTitle = 'Hiragana';
+const pageIdentifier = 'hiragana';
 
 export const hiraganaPageStructure: IPageStructure = {
     title: pageTitle,
     identifier: pageIdentifier,
-    children: []
+    children: [],
 };
 
 hiraganaCharacterTables.forEach(characterTable => {
     hiraganaPageStructure.children.push({
         title: characterTable.title,
         description: characterTable.description,
-        identifier: characterTable.identifier
+        identifier: characterTable.identifier,
     });
 });
 
@@ -27,8 +27,6 @@ export class HiraganaPage extends AbstractCharacterPage {
     characterTables: CharacterTable[] = hiraganaCharacterTables;
 
     pageHTML(identifier: string): string {
-        return (
-            this.templateHTML + this.contentsHTML() + this.tableHTML(identifier)
-        );
+        return this.templateHTML + this.contentsHTML() + this.tableHTML(identifier);
     }
 }

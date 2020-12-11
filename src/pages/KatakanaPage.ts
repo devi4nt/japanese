@@ -1,22 +1,22 @@
-import { AbstractCharacterPage } from "./AbstractCharacterPage";
-import { CharacterTable } from "../classes/CharacterTable";
-import { IPageStructure } from "../interfaces/pages";
-import { katakanaCharacterTables } from "../constants/katakana";
+import { CharacterTable } from '../classes/CharacterTable';
+import { IPageStructure } from '../interfaces/pages';
+import { katakanaCharacterTables } from '../constants/katakana';
+import { AbstractCharacterPage } from './AbstractCharacterPage';
 
-const pageTitle = "Katakana";
-const pageIdentifier = "katakana";
+const pageTitle = 'Katakana';
+const pageIdentifier = 'katakana';
 
 export const katakanaPageStructure: IPageStructure = {
     title: pageTitle,
     identifier: pageIdentifier,
-    children: []
+    children: [],
 };
 
 katakanaCharacterTables.forEach(characterTable => {
     katakanaPageStructure.children.push({
         title: characterTable.title,
         description: characterTable.description,
-        identifier: characterTable.identifier
+        identifier: characterTable.identifier,
     });
 });
 
@@ -27,8 +27,6 @@ export class KatakanaPage extends AbstractCharacterPage {
     characterTables: CharacterTable[] = katakanaCharacterTables;
 
     pageHTML(identifier: string): string {
-        return (
-            this.templateHTML + this.contentsHTML() + this.tableHTML(identifier)
-        );
+        return this.templateHTML + this.contentsHTML() + this.tableHTML(identifier);
     }
 }
