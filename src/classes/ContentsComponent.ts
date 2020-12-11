@@ -1,6 +1,6 @@
-import { AbstractComponent } from "./AbstractComponent";
-import { IPageContentsStructure } from "../interfaces/contents";
-import { IPageStructure } from "../interfaces/pages";
+import { IPageContentsStructure } from '../interfaces/contents';
+import { IPageStructure } from '../interfaces/pages';
+import { AbstractComponent } from './AbstractComponent';
 
 export class ContentsComponent extends AbstractComponent {
     templateHTML = `<ul>{{#each structure}}
@@ -10,14 +10,10 @@ export class ContentsComponent extends AbstractComponent {
     </li>
 {{/each}}</ul>`;
 
-    recurseSetActive(
-        activeIdentifier: string,
-        structure: IPageStructure[]
-    ): void {
+    recurseSetActive(activeIdentifier: string, structure: IPageStructure[]): void {
         structure.forEach((element: IPageStructure) => {
-            element.active =
-                element.identifier === activeIdentifier ? true : false;
-            if (typeof element.children !== "undefined") {
+            element.active = element.identifier === activeIdentifier;
+            if (typeof element.children !== 'undefined') {
                 this.recurseSetActive(activeIdentifier, element.children);
             }
         });
@@ -25,7 +21,7 @@ export class ContentsComponent extends AbstractComponent {
 
     compile(templateData?: IPageContentsStructure): string {
         // decorate active element
-        const activeIdentifier: string = location.hash.replace("#", "");
+        const activeIdentifier: string = location.hash.replace('#', '');
         this.recurseSetActive(activeIdentifier, templateData.structure);
         // call parent compiler
         return super.compile(templateData);

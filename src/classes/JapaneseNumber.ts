@@ -1,5 +1,5 @@
-import { Kanji } from "./Kanji";
-import { Phrase } from "./Phrase";
+import { Kanji } from './Kanji';
+import { Phrase } from './Phrase';
 
 export class JapaneseNumber {
     decimal: number;
@@ -7,13 +7,7 @@ export class JapaneseNumber {
     sinoKanji: Kanji;
     nativePhrases?: Phrase[];
     nativeKanji?: Kanji;
-    constructor(
-        decimal: number,
-        sinoPhrases: Phrase[],
-        sinoKanji: Kanji,
-        nativePhrases?: Phrase[],
-        nativeKanji?: Kanji
-    ) {
+    constructor(decimal: number, sinoPhrases: Phrase[], sinoKanji: Kanji, nativePhrases?: Phrase[], nativeKanji?: Kanji) {
         this.decimal = decimal;
         this.sinoPhrases = sinoPhrases;
         this.sinoKanji = sinoKanji;

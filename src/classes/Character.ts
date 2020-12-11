@@ -1,4 +1,4 @@
-import { IRomanji } from "../interfaces/romanji";
+import { IRomanji } from '../interfaces/romanji';
 
 export class Character {
     symbol: string;

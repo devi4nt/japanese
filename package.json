@@ -1,23 +1,11 @@
 {
     "name": "japanese",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A little project I made to help me learn japanese",
     "repository": {
         "url": "git@github.com:devi4nt/japanese.git"
     },
     "main": "index.ts",
-    "scripts": {
-        "test": "cd cgi-bin; prove -r t",
-        "prebuild": "npm install && npm update",
-        "build": "npm run compile",
-        "precompile": "npm run lint.ts && npm run lint.css",
-        "compile": "webpack",
-        "lint.ts": "tslint --project .",
-        "lint.ts.fix": "tslint --project . --fix",
-        "lint": "tslint -p ./tsconfig.json",
-        "lint.css": "stylelint '**/*.css'",
-        "lint.css.fix": "npm run lint.css -- --fix"
-    },
     "stylelint": {
         "extends": "@holograph/stylelint-holo-rules",
         "rules": {
@@ -26,22 +14,43 @@
             ]
         }
     },
+    "prettier": "@holograph/prettier-holo-config",
+    "lint-staged": {
+        "*.ts": [
+            "eslint"
+        ]
+    },
+    "scripts": {
+        "test": "cd cgi-bin; prove -r t",
+        "prebuild": "npm install && npm update",
+        "build": "npm run compile",
+        "precompile": "npm run lint.ts && npm run lint.css",
+        "compile": "webpack",
+        "lint.ts": "eslint \"src/**/*.ts\"",
+        "lint.ts.fix": "npm run lint.ts -- --fix",
+        "lint": "tslint -p ./tsconfig.json",
+        "lint.css": "stylelint '**/*.css'",
+        "lint.css.fix": "npm run lint.css -- --fix",
+        "serve": "npx http-server dist"
+    },
     "devDependencies": {
-        "@holograph/stylelint-holo-rules": "^1.0.10",
-        "@holograph/tslint-holo-rules": "^1.0.5",
-        "@types/bootstrap": "^4.3.1",
-        "@types/jquery": "^3.3.31",
+        "@holograph/stylelint-holo-rules": "^3.0.1",
+        "@holograph/prettier-holo-config": "^1.0.2",
+        "@holograph/eslint-config-holo": "^2.0.2",
+        "@types/bootstrap": "^5.0.1",
+        "@types/jquery": "^3.5.5",
         "@types/popper.js": "^1.11.0",
-        "clean-webpack-plugin": "^0.1.19",
-        "exports-loader": "^0.7.0",
+        "clean-webpack-plugin": "^3.0.0",
+        "exports-loader": "^1.1.1",
         "handlebars": "^4.7.6",
-        "serialize-javascript": "^2.1.1",
-        "ts-loader": "^4.5.0",
-        "typescript": "^2.9.2",
-        "webpack": "^4.41.2",
-        "webpack-cli": "^3.3.10"
+        "serialize-javascript": "^5.0.1",
+        "ts-loader": "^8.0.12",
+        "typescript": "^4.1.2",
+        "webpack": "^5.10.0",
+        "webpack-cli": "^4.2.0"
     },
     "keywords": [],
     "author": "",
-    "license": "ISC"
+    "license": "ISC",
+    "dependencies": {}
 }

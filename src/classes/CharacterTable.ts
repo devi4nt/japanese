@@ -1,7 +1,7 @@
-import { ICharacterGroup, ICharacterGroupData } from "../interfaces/characters";
+import { ICharacterGroup, ICharacterGroupData } from '../interfaces/characters';
 
-import { AbstractComponent } from "./AbstractComponent";
-import { Character } from "./Character";
+import { AbstractComponent } from './AbstractComponent';
+import { Character } from './Character';
 
 export class CharacterTable extends AbstractComponent {
     title: string;
@@ -52,7 +52,7 @@ export class CharacterTable extends AbstractComponent {
         identifier: string,
         characters: Character[],
         columnGroups: ICharacterGroup[],
-        rowGroups: ICharacterGroup[]
+        rowGroups: ICharacterGroup[],
     ) {
         super();
         this.title = title;
@@ -83,8 +83,7 @@ export class CharacterTable extends AbstractComponent {
                 characters.forEach(character => {
                     // n (include in A row)
                     if (
-                        (character.romanji === "n" &&
-                            rowGroup.vowel.romanji === "a") ||
+                        (character.romanji === 'n' && rowGroup.vowel.romanji === 'a') ||
                         character.vowel === rowGroup.vowel ||
                         character.symbol === rowGroup.vowel.symbol
                     ) {
@@ -93,12 +92,12 @@ export class CharacterTable extends AbstractComponent {
                     }
                 });
                 if (!matched) {
-                    rowCharacters.push({ symbol: "" }); // spacer
+                    rowCharacters.push({ symbol: '' }); // spacer
                 }
             });
             groupData.push({
                 identifier: group.identifier,
-                characters: rowCharacters
+                characters: rowCharacters,
             });
         });
         return groupData;
@@ -111,7 +110,7 @@ export class CharacterTable extends AbstractComponent {
             description: this.description,
             identifier: this.identifier,
             rows: this.rowGroups,
-            columns: data
+            columns: data,
         });
     }
 }

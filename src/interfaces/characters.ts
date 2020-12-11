@@ -1,6 +1,6 @@
-import { Character } from "../classes/Character";
-import { Hiragana } from "./../classes/Hiragana";
-import { Katakana } from "./../classes/Katakana";
+import { Character } from '../classes/Character';
+import { Hiragana } from './../classes/Hiragana';
+import { Katakana } from './../classes/Katakana';
 
 export interface ICharacterGroup {
     identifier: string;

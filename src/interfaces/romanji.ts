@@ -1,5 +1,5 @@
-import { Hiragana } from "../classes/Hiragana";
-import { Katakana } from "../classes/Katakana";
+import { Hiragana } from '../classes/Hiragana';
+import { Katakana } from '../classes/Katakana';
 
 export interface IRomanji {
     // vowels

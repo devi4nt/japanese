@@ -1,5 +1,5 @@
-import { AbstractComponent } from "./AbstractComponent";
-import { JapaneseNumber } from "./JapaneseNumber";
+import { AbstractComponent } from './AbstractComponent';
+import { JapaneseNumber } from './JapaneseNumber';
 
 export class NumberTable extends AbstractComponent {
     numbers: JapaneseNumber[];
